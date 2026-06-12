@@ -1,0 +1,28 @@
+{
+  "lastId": 1,
+  "submissions": [
+    {
+      "id": 1,
+      "form_id": "PPS-1001",
+      "payload": {
+        "caseNumber": "TEST-001",
+        "childName": "Jane Doe",
+        "relationships": [
+          {
+            "name": "Parent",
+            "relation": "Mother"
+          }
+        ],
+        "adults": [
+          {
+            "fullName": "Jane Doe",
+            "adultRelationshipToChild": "mother",
+            "adultMaritalStatus": "single"
+          }
+        ]
+      },
+      "created_at": "2026-06-09T14:22:36.043Z",
+      "updated_at": "2026-06-09T14:22:36.043Z"
+    }
+  ]
+}
