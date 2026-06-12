@@ -1,0 +1,538 @@
+{
+  "id": "PPS-1001",
+  "title": "PPS-1001 - New Case Intake Form",
+  "description": "Complete this form to create a new case and capture the child intake details.",
+  "submitLabel": "Create Case",
+  "fields": [
+    {
+      "name": "children",
+      "label": "Children",
+      "sectionTitle": "Section 1: Child Information",
+      "itemLabel": "Child",
+      "type": "group",
+      "repeatable": true,
+      "minItems": 1,
+      "columns": 3,
+      "description": "Add one or more children for this intake.",
+      "fields": [
+        {
+          "name": "lastName",
+          "label": "Last Name",
+          "type": "text",
+          "placeholder": "Enter last name",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "label": "First Name",
+          "type": "text",
+          "placeholder": "Enter first name",
+          "required": true
+        },
+        {
+          "name": "mi",
+          "label": "Middle Initial",
+          "type": "text",
+          "placeholder": "MI"
+        },
+        {
+          "name": "dateOfBirth",
+          "label": "Date of Birth",
+          "type": "date"
+        },
+        {
+            "name": "estAge",
+            "label": "Estimated Age",
+            "type": "checkbox"
+        },
+        {
+            "name": "SSN",
+            "label": "Social Security Number",
+            "type": "text",
+            "placeholder": "###-##-####",
+            "mask": "###-##-####"
+        },
+        {
+            "name": "gender",
+            "label": "Gender",
+            "type": "select",
+            "optionsKey": "gender"
+        },
+        {
+            "name": "race",
+            "label": "Race",
+            "type": "select",
+            "optionsKey": "race"
+        },
+        {
+            "name": "ethnicity",
+            "label": "Ethnicity/Tribe",
+            "type": "select",
+            "optionsKey": "ethnicity"
+        },
+        {
+            "name": "livesWith",
+            "label": "Lives With",
+            "type": "select",
+            "optionsSource": ["children", "adults"],
+            "optionsSourceLabelTemplate": "{{lastName}}, {{firstName}}",
+            "optionsExcludeCurrent": true
+        },
+        {
+          "name": "school",
+          "label": "School Attends",    
+          "type": "text",
+          "placeholder": "Enter school name"
+        },
+        {
+          "name": "schoolDistrict",
+          "label": "School District",
+          "type": "text",
+          "placeholder": "Enter school district"
+        },
+        {
+          "name": "DisabilityType",
+          "label": "Disability Type",
+          "type": "text",
+          "placeholder": "Disability Type (leave blank if none)"
+        },
+        {
+            "name": "Role",
+            "label": "Role",
+            "type": "text",
+            "placeholder": "Enter current grade"
+        }
+      ]
+    },
+   {
+      "name": "adults",
+      "label": "Adults",
+      "sectionTitle": "Section II: Adult Information",
+      "itemLabel": "Adult",
+      "type": "group",
+      "repeatable": true,
+      "minItems": 1,
+      "columns": 3,
+      "description": "Add one or more adults for this intake.",
+      "fields": [
+        {
+          "name": "adultLastName",
+          "label": "Last Name",
+          "type": "text",
+          "placeholder": "Enter last name",
+          "required": true
+        },
+        {
+          "name": "adultFirstName",
+          "label": "First Name",
+          "type": "text",
+          "placeholder": "Enter first name",
+          "required": true
+        },
+        {
+          "name": "adultMI",
+          "label": "Middle Initial",
+          "type": "text",
+          "placeholder": "MI"
+        },
+        {
+          "name": "adultDateOfBirth",
+          "label": "Date of Birth",
+          "type": "date"
+        },
+        {
+            "name": "adultEstAge",
+            "label": "Estimated Age",
+            "type": "checkbox"
+        },
+        {
+            "name": "adultSSN",
+            "label": "Social Security Number",
+            "type": "text",
+            "placeholder": "###-##-####",
+            "mask": "###-##-####"
+        },
+        {
+            "name": "adultGender",
+            "label": "Gender",
+            "type": "select",
+            "optionsKey": "gender"
+        },
+        {
+            "name": "adultRace",
+            "label": "Race",
+            "type": "select",
+            "optionsKey": "race"
+        },
+        {
+            "name": "adultEthnicity",
+            "label": "Ethnicity/Tribe",
+            "type": "select",
+            "optionsKey": "ethnicity"
+        },
+        {
+            "name": "adultMaritalStatus",
+            "label": "Marital Status",
+            "type": "select",
+            "optionsKey": "maritalStatus"
+        },
+        {
+            "name": "adultRelationshipToChild",
+            "label": "Relationship to Child",
+            "type": "select",
+            "optionsKey": "relationshipToChild"
+        },
+        {
+          "name": "DisabilityType",
+          "label": "Disability Type",
+          "type": "text",
+          "placeholder": "Disability Type (leave blank if none)"
+        },
+        {
+            "name": "Role",
+            "label": "Role",
+            "type": "text",
+            "placeholder": "Enter current grade"
+        }
+      ]
+    },
+    {
+      "name": "addresses",
+      "label": "Addresses",
+      "sectionTitle": "Section III: Address Information",
+      "itemLabel": "Address",
+      "type": "group",
+      "repeatable": true,
+      "minItems": 1,
+      "columns": 3,
+      "fields": [
+        {
+            "name" : "personAddress",
+            "label": "Who's Address",
+            "type": "select",
+            "optionsSource": ["children", "adults"],
+            "optionsSourceLabelTemplate": "{{lastName}}, {{firstName}}"
+        },
+        {
+          "name": "streetAddress",
+          "label": "Street Address",
+          "type": "text",
+          "placeholder": "Enter street address",
+          "required": true
+        },
+        {
+          "name": "aptNumber",
+          "label": "Apartment Number",
+          "type": "text",
+          "placeholder": "Enter apartment number"
+        },
+        {
+          "name": "city",
+          "label": "City",
+          "type": "text",
+          "placeholder": "Enter city"
+        },
+        {
+          "name": "state",
+          "label": "State",
+          "type": "select",
+            "optionsKey": "state"
+        },
+        {
+            "name": "zipCode",
+            "label": "Zip Code",
+            "type": "text",
+            "placeholder": "Enter zip code"
+        },
+        {
+            "name": "County",
+            "label": "County",
+            "type": "text",
+            "placeholder": "Enter county"
+        },
+        {
+            "name": "type",
+            "label": "Address Type",
+            "type": "select",
+            "optionsKey": "addressType"
+        }
+      ]
+    },
+    {
+       "name": "risksToPPSStaff",
+       "label": "Risks to PPS Staff",
+       "fields": [
+         {
+           "name": "risksToPPSStaff",
+           "label": "Risks to PPS Staff",
+           "type": "longtext"
+         }
+       ]
+    },
+    {
+      "name": "languageSpoken",
+      "label": "Language Spoken and Written",
+      "type": " select",
+      "optionsKey": "language"
+    },
+    {
+      "name": "otherMedia",
+      "label": "Other Media Used for Communication",
+      "type": "text"
+    },
+    {
+      "name": "collateralContacts",
+      "label": "Collateral Contacts",
+      "sectionTitle": "Section III: Collateral Contacts",
+      "itemLabel": "Contact",
+      "type": "group",
+      "repeatable": true,
+      "minItems": 1,
+      "columns": 3,
+      "fields": [
+        {
+            "name" : "childName",
+            "label": "Child Name",
+            "type": "select",
+            "optionsSource": ["children"],
+            "optionsSourceLabelTemplate": "{{lastName}}, {{firstName}}"
+        },
+        {
+          "name": "lastName",
+          "label": "Last Name",
+          "type": "text",
+          "placeholder": "Enter last name",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "label": "First Name",
+          "type": "text",
+          "placeholder": "Enter first name",
+          "required": true
+        },
+        {
+          "name": "relationshipType",
+          "label": "Relationship Type",
+          "type": "select",
+          "optionsKey": "relationshipToChild"
+        },
+        {
+            "name": "phoneNumber",
+            "label": "Phone Number",
+            "type": "text",
+            "placeholder": "(###) ###-####",
+            "mask": "(###) ###-####"
+        },
+        {
+              "name": "streetAddress",
+              "label": "Street Address",
+              "type": "text",
+              "placeholder": "Enter street address",
+              "required": true
+        },
+        {
+              "name": "aptNumber",
+              "label": "Apartment Number",
+              "type": "text",
+              "placeholder": "Enter apartment number"
+        },
+        {
+              "name": "city",
+              "label": "City",
+              "type": "text",
+              "placeholder": "Enter city"
+            },
+            {
+              "name": "state",
+              "label": "State",
+              "type": "select",
+              "optionsKey": "state"
+            },
+            {
+                "name": "zipCode",
+                "label": "Zip Code",
+                "type": "text",
+                "placeholder": "Enter zip code"
+            },
+            {
+                "name": "County",
+                "label": "County",
+                "type": "text",
+                "placeholder": "Enter county"
+            },
+            {
+                "name": "type",
+                "label": "Address Type",
+                "type": "select",
+                "optionsKey": "addressType"
+            }
+    ]  
+    },
+    {
+      "name": "relativeContacts",
+      "label": "Relative Contacts",
+      "sectionTitle": "Section IV: Relative/Non-Related Kin",
+      "itemLabel": "Contact",
+      "type": "group",
+      "repeatable": true,
+      "minItems": 1,
+      "columns": 3,
+      "fields": [
+        {
+            "name" : "childName",
+            "label": "Child Name",
+            "type": "select",
+            "optionsSource": ["children"],
+            "optionsSourceLabelTemplate": "{{lastName}}, {{firstName}}"
+        },
+        {
+          "name": "lastName",
+          "label": "Last Name",
+          "type": "text",
+          "placeholder": "Enter last name",
+          "required": true
+        },
+        {
+          "name": "firstName",
+          "label": "First Name",
+          "type": "text",
+          "placeholder": "Enter first name",
+          "required": true
+        },
+        {
+          "name": "relationshipType",
+          "label": "Relationship Type",
+          "type": "select",
+          "optionsKey": "relationshipToChild"
+        },
+        {
+            "name": "phoneNumber",
+            "label": "Phone Number",
+            "type": "text",
+            "placeholder": "(###) ###-####",
+            "mask": "(###) ###-####"
+        },
+        {
+              "name": "streetAddress",
+              "label": "Street Address",
+              "type": "text",
+              "placeholder": "Enter street address",
+              "required": true
+        },
+        {
+              "name": "aptNumber",
+              "label": "Apartment Number",
+              "type": "text",
+              "placeholder": "Enter apartment number"
+        },
+        {
+              "name": "city",
+              "label": "City",
+              "type": "text",
+              "placeholder": "Enter city"
+            },
+            {
+              "name": "state",
+              "label": "State",
+              "type": "select",
+              "optionsKey": "state"
+            },
+            {
+                "name": "zipCode",
+                "label": "Zip Code",
+                "type": "text",
+                "placeholder": "Enter zip code"
+            },
+            {
+                "name": "County",
+                "label": "County",
+                "type": "text",
+                "placeholder": "Enter county"
+            },
+            {
+                "name": "type",
+                "label": "Address Type",
+                "type": "select",
+                "optionsKey": "addressType"
+            }
+    ]  
+    },
+        {
+      "name": "serviceProviders",
+      "label": "Service Providers",
+      "sectionTitle": "Section V: Service Providers",
+      "itemLabel": "Provider",
+      "type": "group",
+      "repeatable": true,
+      "minItems": 1,
+      "columns": 3,
+      "fields": [
+        {
+            "name" : "name",
+            "label": "Name of family member receiving service:",
+            "type": "select",
+            "optionsSource": ["children", "adults"],
+            "optionsSourceLabelTemplate": "{{lastName}}, {{firstName}}"
+        },
+        {
+          "name": "nameAgency",
+          "label": "Name of Agency/Provider",
+          "type": "text",
+          "placeholder": "Enter agency/provider name",
+          "required": true
+        },
+        {
+            "name": "phoneNumber",
+            "label": "Phone Number",
+            "type": "text",
+            "placeholder": "(###) ###-####",
+            "mask": "(###) ###-####"
+        },
+        {
+              "name": "streetAddress",
+              "label": "Street Address",
+              "type": "text",
+              "placeholder": "Enter street address",
+              "required": true
+        },
+        {
+              "name": "aptNumber",
+              "label": "Apartment Number",
+              "type": "text",
+              "placeholder": "Enter apartment number"
+        },
+        {
+              "name": "city",
+              "label": "City",
+              "type": "text",
+              "placeholder": "Enter city"
+            },
+            {
+              "name": "state",
+              "label": "State",
+              "type": "select",
+              "optionsKey": "state"
+            },
+            {
+                "name": "zipCode",
+                "label": "Zip Code",
+                "type": "text",
+                "placeholder": "Enter zip code"
+            },
+            {
+                "name": "County",
+                "label": "County",
+                "type": "text",
+                "placeholder": "Enter county"
+            },
+            {
+                "name": "serviceType",
+                "label": "Service Type",
+                "type": "select",
+                "optionsKey": "serviceType"
+            }
+    ]  
+    }
+  ]
+}

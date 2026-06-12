@@ -2,9 +2,10 @@ import { Bell, FileText, Users, Calendar, AlertCircle, Plus, Search } from 'luci
 
 interface DashboardProps {
   onViewChild: () => void;
+  onNewCase: (formId: string) => void;
 }
 
-export function Dashboard({ onViewChild }: DashboardProps) {
+export function Dashboard({ onViewChild, onNewCase }: DashboardProps) {
   const stats = [
     { label: 'Active Cases', value: '24', icon: Users, change: '+2 this week' },
     { label: 'Pending Documents', value: '12', icon: FileText, change: '3 urgent' },
@@ -106,7 +107,10 @@ export function Dashboard({ onViewChild }: DashboardProps) {
               className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+          <button
+            onClick={() => onNewCase('kansas/PPS-1001')}
+            className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+          >
             <Plus className="w-5 h-5" />
             New Case
           </button>

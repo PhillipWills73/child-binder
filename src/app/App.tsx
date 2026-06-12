@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
+import { FormPage } from './components/FormPage';
 import { ChildrenPage } from './components/ChildrenPage';
 import { ChildProfile } from './components/ChildProfile';
 import { FosterHomesPage } from './components/FosterHomesPage';
@@ -14,6 +15,7 @@ import { SettingsPage } from './components/SettingsPage';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
+  const [activeFormId, setActiveFormId] = useState<string | null>(null);
   const [showChildProfile, setShowChildProfile] = useState(false);
 
   const renderPage = () => {
@@ -21,9 +23,29 @@ export default function App() {
       return <ChildProfile onBack={() => setShowChildProfile(false)} />;
     }
 
+    if (currentPage === 'form' && activeFormId) {
+      return (
+        <FormPage
+          formId={activeFormId}
+          onBack={() => {
+            setCurrentPage('dashboard');
+            setActiveFormId(null);
+          }}
+        />
+      );
+    }
+
     switch (currentPage) {
       case 'dashboard':
-        return <Dashboard onViewChild={() => setShowChildProfile(true)} />;
+        return (
+          <Dashboard
+            onViewChild={() => setShowChildProfile(true)}
+            onNewCase={(formId) => {
+              setActiveFormId(formId);
+              setCurrentPage('form');
+            }}
+          />
+        );
       case 'children':
         return <ChildrenPage onViewChild={() => setShowChildProfile(true)} />;
       case 'foster-homes':
@@ -43,7 +65,15 @@ export default function App() {
       case 'settings':
         return <SettingsPage />;
       default:
-        return <Dashboard onViewChild={() => setShowChildProfile(true)} />;
+        return (
+          <Dashboard
+            onViewChild={() => setShowChildProfile(true)}
+            onNewCase={(formId) => {
+              setActiveFormId(formId);
+              setCurrentPage('form');
+            }}
+          />
+        );
     }
   };
 
